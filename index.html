@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #countdown {
+            font-size: 1.2em;
+            color: white;
+            margin: 20px 0;
+        }
+        #login-container {
+            margin-top: 20px;
+        }
+        #login {
+            font-size: 0.8em;
+            color: white;
+        }
+        #input-box {
+            width: 300px;
+            padding: 10px;
+            border: 2px solid white;
+            background: black;
+            color: white;
+            outline: none;
+            font-size: 1em;
+            text-align: center;
+        }
+        #input-box:focus {
+            border-color: green;
+        }
+        #enter-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+        #confirm-button {
+            display: none;
+            margin-top: 20px;
+            color: green;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        #fake-text {
+            display: none;
+            font-size: 0.8em;
+            color: white;
+            white-space: pre-wrap;
+            margin-top: 10px;
+        }
+        #message {
+            display: none;
+            font-size: 1.5em;
+            color: red;
+        }
+        #link {
+            display: none;
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown">Countdown: <span id="countdown-timer">12 days 00:00:00</span></div>
+    <div id="login-container">
+        <div id="login">Log In</div>
+        <input type="text" id="input-box" placeholder="Enter password">
+        <button id="enter-button">Enter</button>
+        <div id="fake-text">
+            UsjaifzzjfzkkjfKfzvkxOHDgodgxogodgdo5£89-688its8&£&8££&8&(#58#tis&£985#96_6_9885£96_#5£9otd95£58£95£58#85£oyddoydwgdoatodgd&£885£&9£585£899596£6_926_9#9-_-9_#9-_#9&"#)-')#-"&"9god-_9#__-9#69_#96_#-_9-&£8#_**6_90#7-0+8#)-0#/+:)+'lhc0++'#6&9#+0'shpfshfoshcoHfpshcpYco-'9hpvshcoshcaohscohc-'9'+#-'9yf
+            <!-- Repeat the above fake text block as needed -->
+        </div>
+        <div id="confirm-button">Are you sure to continue?</div>
+        <div id="link"><a href="https://giproamazing.github.io/ThiswebsiteisforciphersolversandplaintextsopversidontreccomendyounonsmsrtypsntstotrythewebsiteLol/" target="_blank">Go to</a></div>
+    </div>
+    <div id="message">You failed to solve, thanks for wasting the time</div>
+    <script>
+        // Countdown Timer JavaScript
+        const countdownElement = document.getElementById('countdown-timer');
+        let countdownDate;
+
+        function initializeCountdown() {
+            const storedEndTime = localStorage.getItem('countdownEndTime');
+            if (storedEndTime) {
+                countdownDate = new Date(parseInt(storedEndTime));
+            } else {
+                countdownDate = new Date();
+                countdownDate.setDate(countdownDate.getDate() + 12); // Set to 12 days from now
+                localStorage.setItem('countdownEndTime', countdownDate.getTime());
+            }
+        }
+
+        function updateCountdown() {
+            const now = new Date();
+            const distance = countdownDate - now;
+
+            if (distance < 0) {
+                document.body.innerHTML = '';
+                document.body.innerHTML = '<div id="message">You failed to solve, thanks for wasting the time</div>';
+                localStorage.removeItem('countdownEndTime'); // Remove end time after countdown is over
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.textContent = `${days} days ${hours}:${minutes}:${seconds}`;
+        }
+
+        initializeCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Handle Input and Confirmation
+        document.getElementById('enter-button').addEventListener('click', function() {
+            const inputValue = document.getElementById('input-box').value;
+            if (inputValue === 'YJHAS') {
+                document.getElementById('fake-text').style.display = 'block';
+                document.getElementById('confirm-button').style.display = 'block';
+            }
+        });
+
+        document.getElementById('confirm-button').addEventListener('click', function() {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('link').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
